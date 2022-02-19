@@ -1,4 +1,4 @@
-import React from 'react';
+import React {useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 
 const SignIn = ({navigation}) => {
+  const [userEmail, setUserEmail] = useState('')
+  const [password, setPassword] = useState('')
+  
   const navigate = () => {
     navigation.navigate('signUp');
     console.log(navigation.navigate);
@@ -27,12 +30,16 @@ const SignIn = ({navigation}) => {
             style={styles.textInput}
             placeholder={'Email Address'}
             placeholderTextColor={'#fff'}
+            value={userEmail}
+            setValue={setUserEmail}
           />
           <TextInput //PASSWORD
             style={styles.textInput}
             placeholder={'Password'}
             secureTextEntry={true}
             placeholderTextColor={'#fff'}
+            value={password}
+            setValue={setPassword}
           />
           <TouchableOpacity style={styles.button}>
             <Text style={styles.btnTxt}>Sign In</Text>
