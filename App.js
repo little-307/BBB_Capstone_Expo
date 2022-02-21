@@ -4,11 +4,12 @@ import { StyleSheet, Text, View, LogBox} from 'react-native';
 
 import Navigator from './routes/HomeStack';
 
-LogBox.ignoreLogs( [
-  "[react-native=gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
-]);
+
 
 export default function App() {
+  LogBox.ignoreLogs( [
+    "[react-native=gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
+  ]);
   console.log("hello")
   return (
     <Navigator />

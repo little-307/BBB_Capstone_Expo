@@ -17,7 +17,7 @@ export default function Onboarding({navigation}) {
   const viewConfig = useRef({viewAreaCoveragePercentThreshold: 50}).current;
 
   const navigate = () => {
-    navigation.navigate('signUp');
+    navigation.navigate('signIn');
     console.log(navigation.navigate);
   };
 
@@ -47,7 +47,7 @@ export default function Onboarding({navigation}) {
           data={SlideData}
           scrollX={scrollX}
         />
-        <Button style={styles.btn} title="Get Started" onPress={() => navigation.navigate('SignUp')} />
+        <Button style={styles.btn} title="Get Started" onPress={() => navigation.navigate('SignIn')} />
         
       </View>
     </View>
