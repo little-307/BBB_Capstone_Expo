@@ -1,11 +1,11 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import Dashboard from '../screens/Dashboard';
 import Branches from '../screens/Branches';
 import About from '../screens/About';
 import Onboarding from '../screens/Onboarding';
 import SignUp from '../Register/SignUp';
 import SignIn from '../Register/SignIn';
+import Dashboard from '../screens/Dashboard';
 
 const screens = {
   Home: {
@@ -16,7 +16,10 @@ const screens = {
   },
   SignUp: {
     screen: SignUp,
-  }
+  },
+  Dashboard: {
+    screen: Dashboard,
+  },
 };
 
 const HomeStack = createStackNavigator(screens);

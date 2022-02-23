@@ -21,7 +21,8 @@ const SignUp = ({navigation}) => {
 
   const onSubmitPressed = (data) => {
     console.log(data);
-    console.log("Submit button pressed")
+    console.log("Submit button pressed");
+    navigation.navigate('Dashboard');
   }
   const onSignUpPressed = () => {
     navigation.navigate('SignUp');
@@ -37,7 +38,17 @@ const SignUp = ({navigation}) => {
             name="username"
             placeholder='Username*' 
             control={control}
-            rules={{required: 'Username is required'}}
+            rules={{
+              required: 'Username is required',
+              minLength: {
+                value: 3,
+                message: 'Username should be at least 3 characters long',
+              },
+              maxLength: {
+                value: 24,
+                message: 'Username should be max 24 characters long',
+              },
+            }}
             />
           <CustomInput 
             name="userEmail"

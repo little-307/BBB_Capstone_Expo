@@ -22,7 +22,7 @@ const CustomInput = ({ control, name, rules = {}, placeholder, secureTextEntry }
             />
           </View>
           {error && (
-          <Text style={{color: 'red', alignSelf: 'stretch'}}>{error.message || 'ERROR'}</Text>
+            <Text style={{color: 'red', alignSelf: 'stretch'}}>{error.message || 'ERROR'}</Text>
           )}
         </>
       )}
