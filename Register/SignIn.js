@@ -1,4 +1,4 @@
-import React {useState} from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -7,15 +7,38 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {useForm, Controller} from 'react-hook-form';
+
+import CustomInput from '../components/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
 const SignIn = ({navigation}) => {
-  const [userEmail, setUserEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // const [username, setUsername] = useState('')
+  // const [userEmail, setUserEmail] = useState('')
+  // const [password, setPassword] = useState('')
+
+  const {
+    control, 
+    handleSubmit, 
+    formState: {errors}
+  } = useForm();
   
-  const navigate = () => {
-    navigation.navigate('signUp');
-    console.log(navigation.navigate);
-  };
+  // const navigate = () => {
+  //   navigation.navigate('signUp');
+  //   console.log(navigation.navigate);
+  // };
+
+  const onSignInPressed = (data) => {
+    console.log(data)
+    console.log("Sign In button pressed!")
+  }
+  const onForgotPasswordPressed = () => {
+    console.log('Forgot Password pressed')
+  }
+  const onSignUpPressed = () => {
+    navigation.navigate('SignUp');
+    console.log("Sign up button pressed")
+  }
 
   return (
     <View style={styles.container}>
@@ -26,27 +49,38 @@ const SignIn = ({navigation}) => {
           Back
         </Text>
         <View style={styles.formView}>
-          <TextInput //EMAIL
-            style={styles.textInput}
-            placeholder={'Email Address'}
-            placeholderTextColor={'#fff'}
-            value={userEmail}
-            setValue={setUserEmail}
+          <CustomInput 
+          name="username"
+          placeholder='Username' 
+          control={control}
+          rules={{required: 'Username is required'}}
           />
-          <TextInput //PASSWORD
-            style={styles.textInput}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            placeholderTextColor={'#fff'}
-            value={password}
-            setValue={setPassword}
-          />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.btnTxt}>Sign In</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.signUpBtn} onPress={navigate}>
-            <Text style={styles.signUpText}>Sign Up</Text>
-          </TouchableOpacity>
+          <CustomInput 
+            name="password"
+            placeholder='Password'
+            control={control}
+            rules={{
+              required: 'Password is required', 
+              minLength: {
+                value: 3, 
+                message: 'Password should be minimum 3 characters long',
+              }
+            }}
+            secureTextEntry 
+            />
+          <CustomButton 
+            text='Sign In' 
+            onPress={handleSubmit(onSignInPressed)}/>
+          <CustomButton 
+            text='Forgot Password?' 
+            onPress={onForgotPasswordPressed} 
+            type='TERTIARY' 
+            />
+          <CustomButton
+            text="Don't have and account? Sign Up!"
+            onPress={onSignUpPressed}
+            type="TERTIARY"
+            />
         </View>
       </View>
     </View>

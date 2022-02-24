@@ -11,8 +11,21 @@ app.use(express.urlencoded());
 app.use(cors());
 
 // set up routes
-// app.use('./user', userRoutes)
-// app.use('./branch', branchRoutes)
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.post('/', (req, res) => {
+    res.send('Got a POST request')
+})
+
+app.put('/user', (req, res) => {
+    res.send('Got a PUT request at /user')
+})
+
+app.delete('/user', (req, res) => {
+    res.send('Got a DELETE request at /user')
+})
 
 mongoose.connect('mongodb://localhost:27017/branch', function(err) {
     if (err) throw err;

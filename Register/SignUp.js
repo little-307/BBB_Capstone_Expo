@@ -7,15 +7,70 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
+
+import CustomInput from '../components/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
 const SignUp = ({navigation}) => {
+  const {
+    control, 
+    handleSubmit, 
+    formState: {errors}
+  } = useForm();
+
+  const onSubmitPressed = (data) => {
+    console.log(data);
+    console.log("Submit button pressed");
+    navigation.navigate('Dashboard');
+  }
+  const onSignUpPressed = () => {
+    navigation.navigate('SignUp');
+    console.log("Sign up button pressed")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.logo}></View>
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Get Started</Text>
         <View style={styles.formView}>
-          <TextInput //NAME
+          <CustomInput 
+            name="username"
+            placeholder='Username*' 
+            control={control}
+            rules={{
+              required: 'Username is required',
+              minLength: {
+                value: 3,
+                message: 'Username should be at least 3 characters long',
+              },
+              maxLength: {
+                value: 24,
+                message: 'Username should be max 24 characters long',
+              },
+            }}
+            />
+          <CustomInput 
+            name="userEmail"
+            placeholder='Email*' 
+            control={control}
+            rules={{required: 'Email is required'}}
+            />
+          <CustomInput 
+            name="password"
+            placeholder='Password*' 
+            control={control}
+            rules={{required: 'Password is required'}}
+            secureTextEntry
+            />
+          <CustomInput 
+            name="confirmPassword"
+            placeholder='Confirm Password*' 
+            control={control}
+            rules={{required: 'Username is required'}}
+            secureTextEntry
+            />
+          {/* <TextInput //NAME
             style={styles.textInput}
             placeholder={'Name*'}
             placeholderTextColor={'#fff'}
@@ -36,10 +91,18 @@ const SignUp = ({navigation}) => {
             placeholder={'Confirm Password*'}
             secureTextEntry={true}
             placeholderTextColor={'#fff'}
-          />
-          <TouchableOpacity style={styles.button}>
+          /> */}
+          {/* <TouchableOpacity style={styles.button}>
             <Text style={styles.btnTxt}>Submit</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <CustomButton 
+            text="Submit"
+            onPress={handleSubmit(onSubmitPressed)}/>
+          <CustomButton
+            text="Already have and account? Sign IN"
+            onPress={onSignUpPressed}
+            type="TERTIARY"
+            />
         </View>
       </View>
     </View>
