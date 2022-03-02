@@ -1,3 +1,8 @@
+
+// get this line to display 
+[{name: "education"}, [{name: "english"},"verbs", "nouns"], [{name: "react"},"usestate", "hooks"]]
+
+
 import React, {useState} from 'react';
 import {
   StyleSheet,
@@ -14,10 +19,10 @@ import AddBranch from '../components/Dashboard/AddBranch';
 
 export default function Dashboard({navigation}) {
   const [branches, setBranches] = useState([
-    {text: 'Education', key: '1'},
-    {text: 'Health & Fitness', key: '2'},
-    {text: 'Business', key: '3'},
-  ]);
+      {name: "education"}, 
+    [{name: "english"},"verbs", "nouns"], 
+    [{name: "react"},"usestate", "hooks"]
+]);
 
   const pressHandler = key => {
     // setBranches(prevBranches => {

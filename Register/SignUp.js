@@ -21,12 +21,13 @@ const SignUp = ({navigation}) => {
 
   const onSubmitPressed = (data) => {
     console.log(data);
+    console.warn(data);
     console.log("Submit button pressed");
     navigation.navigate('Dashboard');
   }
-  const onSignUpPressed = () => {
-    navigation.navigate('SignUp');
-    console.log("Sign up button pressed")
+  const onSignInPressed = () => {
+    navigation.navigate('SignIn');
+    console.log("Sign in button pressed")
   }
   return (
     <View style={styles.container}>
@@ -100,7 +101,7 @@ const SignUp = ({navigation}) => {
             onPress={handleSubmit(onSubmitPressed)}/>
           <CustomButton
             text="Already have and account? Sign IN"
-            onPress={onSignUpPressed}
+            onPress={onSignInPressed}
             type="TERTIARY"
             />
         </View>
@@ -110,7 +111,7 @@ const SignUp = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  contianer: {
+  container: {
     marginTop: 40,
     flex: 1,
     flexDirection: 'column',

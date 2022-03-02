@@ -44,11 +44,11 @@ const styles = StyleSheet.create ({
         fontSize: 20,
         paddingVertical: 10,
     },
-    // error: {
-    //   color: 'red',
-    //   alignSelf: 'stretch',
-    //   paddingHorizontal: 20
-    // },
+    error: {
+      color: 'red',
+      alignSelf: 'stretch',
+      paddingHorizontal: 20
+    },
 })
 
 export default CustomInput
