@@ -7,6 +7,9 @@ import SignUp from '../Register/SignUp';
 import SignIn from '../Register/SignIn';
 import Dashboard from '../screens/Dashboard';
 
+//test imports
+import BranchPage from '../screens/BranchPage';
+
 const screens = {
   Home: {
     screen: Onboarding,
@@ -19,6 +22,9 @@ const screens = {
   },
   Dashboard: {
     screen: Dashboard,
+  },
+  BranchPage: {
+    screen: BranchPage,  // props or hooks
   },
 };
 

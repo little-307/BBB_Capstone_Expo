@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
+import { selectBranch } from '../state/branchSlice';
+
 import {
   StyleSheet,
   View,
@@ -8,6 +11,7 @@ import {
   Keyboard,
 } from 'react-native';
 
+// importing components
 import Header from '../components/Dashboard/Header';
 import BranchItem from '../components/Dashboard/BranchItem';
 import AddBranch from '../components/Dashboard/AddBranch';
@@ -18,8 +22,13 @@ export default function Dashboard({navigation}) {
     {text: 'Health & Fitness', key: '2'},
     {text: 'Business', key: '3'},
   ]);
+  const [branchItem, setBranchItem] = useState()
 
+  // NAVIGATION handler
   const pressHandler = key => {
+    // NAVIGATE AND BRING BRANCH DATA
+    navigation.navigate('BranchPage'); 
+    console.log(key);
     // setBranches(prevBranches => {
     //   return prevBranches.filter(branch => branch.key !== key);
     // });
@@ -39,7 +48,7 @@ export default function Dashboard({navigation}) {
       ]);
     }
   };
-
+// console.log(useSelector(selectBranch))
   return (
     <TouchableWithoutFeedback
       onPress={() => {

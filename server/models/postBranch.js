@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema({
     branch: {
         subBranch: { type: String, required: true },
     // maybe add a time stamp here
-});
+}});
 
 // create and export postBranch Model
 const PostBranch = mongoose.model('PostBranch', postSchema);

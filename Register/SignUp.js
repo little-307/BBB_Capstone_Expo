@@ -21,7 +21,7 @@ const SignUp = ({navigation}) => {
 
   const onSubmitPressed = (data) => {
     console.log(data);
-    console.warn(data);
+    // console.warn(data);
     console.log("Submit button pressed");
     navigation.navigate('Dashboard');
   }

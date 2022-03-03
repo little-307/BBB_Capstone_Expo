@@ -1,6 +1,6 @@
 
 // get this line to display 
-[{name: "education"}, [{name: "english"},"verbs", "nouns"], [{name: "react"},"usestate", "hooks"]]
+// [{name: "education"}, [{name: "english"},"verbs", "nouns"], [{name: "react"},"usestate", "hooks"]]
 
 
 import React, {useState} from 'react';
@@ -12,28 +12,33 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 import Header from '../components/Dashboard/Header';
 import BranchItem from '../components/Dashboard/BranchItem';
 import AddBranch from '../components/Dashboard/AddBranch';
 
-export default function Dashboard({navigation}) {
-  const [branches, setBranches] = useState([
-      {name: "education"}, 
-    [{name: "english"},"verbs", "nouns"], 
-    [{name: "react"},"usestate", "hooks"]
+export default function BranchPage() {
+  const [branch, setBranch] = useState([ // changed to singular version of Branch from Branches
+    {text: "math" , id: "1" }, 
+    {text: "english", id: "2" }, 
+    {text: "react", id: "3" },
 ]);
+  // const route = useRoute();
+  // console.log(route.params.branch)
 
-  const pressHandler = key => {
+  const pressHandler = id => {
+      // navigation.navigate('BranchPage');
+      console.log(id);
     // setBranches(prevBranches => {
     //   return prevBranches.filter(branch => branch.key !== key);
     // });
   };
 
-  const submitHandler = text => {
-    if (text.length > 3) {
-      setBranches(prevBranches => {
-        return [{text, key: Math.random().toString()}, ...prevBranches];
+  const submitHandler = name => {
+    if (name.length > 3) {
+      setBranch(prevBranch => {
+        return [{name, id: Math.random().toString()}, ...prevBranch];
       });
     } else {
       Alert.alert('OOPS', 'Branch must be over 3 characters long', [
@@ -54,14 +59,14 @@ export default function Dashboard({navigation}) {
       <View style={styles.container}>
         <Header />
         <View style={styles.content}>
-          <AddBranch submitHandler={submitHandler} />
           <View style={styles.list}>
             <FlatList
-              data={branches}
+              data={branch}
               renderItem={({item}) => (
                 <BranchItem item={item} pressHandler={pressHandler} />
               )}
             />
+            <AddBranch submitHandler={submitHandler} />
           </View>
         </View>
       </View>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, LogBox} from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './state/store/store';
 
 import Navigator from './routes/HomeStack';
 
@@ -12,7 +14,9 @@ export default function App() {
   ]);
   console.log("hello")
   return (
-    <Navigator />
+    <Provider store={store}>
+      <Navigator />
+    </Provider>
   );
 }
 

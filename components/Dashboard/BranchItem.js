@@ -2,9 +2,10 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 export default function BranchItem({pressHandler, item}) {
+  console.log(item.key);
   return (
-    <TouchableOpacity onPress={() => pressHandler(item.key)}>
-      <Text style={styles.item}>{item.text}</Text>
+    <TouchableOpacity onPress={() => pressHandler(item)}>
+      <Text style={styles.item} key={item.key}>{item.text}</Text>
     </TouchableOpacity>
   );
 }
