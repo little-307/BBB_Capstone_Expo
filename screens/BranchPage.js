@@ -18,27 +18,31 @@ import Header from '../components/Dashboard/Header';
 import BranchItem from '../components/Dashboard/BranchItem';
 import AddBranch from '../components/Dashboard/AddBranch';
 
-export default function BranchPage() {
+import { branchData } from '../assets/data/branchData';
+
+export default function BranchPage({navigation, item}) {
   const [branch, setBranch] = useState([ // changed to singular version of Branch from Branches
-    {text: "math" , id: "1" }, 
-    {text: "english", id: "2" }, 
-    {text: "react", id: "3" },
+    // {text: "math" , id: "1" }, 
+    // {text: "english", id: "2" }, 
+    // {text: "react", id: "3" },
 ]);
   // const route = useRoute();
-  // console.log(route.params.branch)
+  // console.log(route.params.name);
+
+  let trunk = "education"
 
   const pressHandler = id => {
       // navigation.navigate('BranchPage');
-      console.log(id);
+      // console.log(id.text);
     // setBranches(prevBranches => {
     //   return prevBranches.filter(branch => branch.key !== key);
     // });
   };
 
-  const submitHandler = name => {
-    if (name.length > 3) {
+  const submitHandler = text => {
+    if (text.length > 3) {
       setBranch(prevBranch => {
-        return [{name, id: Math.random().toString()}, ...prevBranch];
+        return [{text, id: Math.random().toString()}, ...prevBranch];
       });
     } else {
       Alert.alert('OOPS', 'Branch must be over 3 characters long', [
@@ -61,10 +65,10 @@ export default function BranchPage() {
         <View style={styles.content}>
           <View style={styles.list}>
             <FlatList
-              data={branch}
+              data={branchData}
               renderItem={({item}) => (
                 <BranchItem item={item} pressHandler={pressHandler} />
-              )}
+             )}
             />
             <AddBranch submitHandler={submitHandler} />
           </View>

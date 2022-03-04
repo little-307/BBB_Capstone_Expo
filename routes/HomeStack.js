@@ -9,6 +9,7 @@ import Dashboard from '../screens/Dashboard';
 
 //test imports
 import BranchPage from '../screens/BranchPage';
+import A_Branch from '../screens/A_Branch';
 
 const screens = {
   Home: {
@@ -26,6 +27,9 @@ const screens = {
   BranchPage: {
     screen: BranchPage,  // props or hooks
   },
+  A_Branch: {
+    screen: A_Branch,
+  }
 };
 
 const HomeStack = createStackNavigator(screens);

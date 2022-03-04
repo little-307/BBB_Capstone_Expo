@@ -16,23 +16,26 @@ import Header from '../components/Dashboard/Header';
 import BranchItem from '../components/Dashboard/BranchItem';
 import AddBranch from '../components/Dashboard/AddBranch';
 
+import { trunkData } from '../assets/data/branchData';
+
 export default function Dashboard({navigation}) {
-  const [branches, setBranches] = useState([
-    {text: 'Education', key: '1'},
-    {text: 'Health & Fitness', key: '2'},
-    {text: 'Business', key: '3'},
-  ]);
+  // console.log(item)
+  // const [branches, setBranches] = useState([
+  //   {text: 'Education', key: '1'},
+  //   {text: 'Health & Fitness', key: '2'},
+  //   {text: 'Business', key: '3'},
+  // ]);
   const [branchItem, setBranchItem] = useState()
 
   // NAVIGATION handler
-  const pressHandler = key => {
+  // const pressHandler = () => {
     // NAVIGATE AND BRING BRANCH DATA
-    navigation.navigate('BranchPage'); 
-    console.log(key);
+    // navigation.navigate('BranchPage', {name: text}); 
+    // console.log(text);
     // setBranches(prevBranches => {
     //   return prevBranches.filter(branch => branch.key !== key);
     // });
-  };
+  // };
 
   const submitHandler = text => {
     if (text.length > 3) {
@@ -61,9 +64,13 @@ export default function Dashboard({navigation}) {
           <AddBranch submitHandler={submitHandler} />
           <View style={styles.list}>
             <FlatList
-              data={branches}
+              data={trunkData}
               renderItem={({item}) => (
-                <BranchItem item={item} pressHandler={pressHandler} />
+                  <BranchItem 
+                    navigation={navigation}
+                    item={item} 
+                    name={item.text} 
+                    /> 
               )}
             />
           </View>

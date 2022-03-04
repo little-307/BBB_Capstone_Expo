@@ -4,9 +4,9 @@ const branchSlice = createSlice({
     name: 'branch',
     initialState: {
         branch: [
-            {text: 'Education', key: '1'},
-            {text: 'Health & Fitness', key: '2'},
-            {text: 'Business', key: '3'},
+            // {text: 'Education', key: '1'},
+            // {text: 'Health & Fitness', key: '2'},
+            // {text: 'Business', key: '3'},
         ],
     },
     reducers: {
