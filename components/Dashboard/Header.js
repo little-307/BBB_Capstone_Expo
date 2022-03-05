@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-export default function Header() {
+export default function Header({name}) {
+  console.log(name)
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>My Branches</Text>
+      <Text style={styles.title}>{name}</Text>
     </View>
   );
 }

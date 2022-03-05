@@ -9,6 +9,7 @@ import Dashboard from '../screens/Dashboard';
 
 //test imports
 import BranchPage from '../screens/BranchPage';
+import SubBranchPage from '../screens/subBranchPage';
 import A_Branch from '../screens/A_Branch';
 
 const screens = {
@@ -25,7 +26,10 @@ const screens = {
     screen: Dashboard,
   },
   BranchPage: {
-    screen: BranchPage,  // props or hooks
+    screen: BranchPage,  
+  },
+  subBranchPage: {
+    screen: SubBranchPage, 
   },
   A_Branch: {
     screen: A_Branch,

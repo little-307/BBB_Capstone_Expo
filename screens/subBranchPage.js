@@ -9,19 +9,25 @@ import {
   Keyboard,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBranchName, saveBranchName } from '../state/branchNameSlice';
+import { getBranchName } from '../state/branchNameSlice';
 import Header from '../components/Dashboard/Header';
 import BranchItem from '../components/Dashboard/BranchItem';
 import AddBranch from '../components/Dashboard/AddBranch';
 
-import { branchData } from '../assets/data/branchData';
+import { subBranchData } from '../assets/data/branchData';
 
-export default function BranchPage({navigation}) {
-  const dispatch = useDispatch()
+export default function SubBranchPage({navigation, item}) {
+ // const dispatch = useDispatch()
+  const [branch, setBranch] = useState([ // changed to singular version of Branch from Branches
+  
+]);
+
+
   const selectedBranch = useSelector(getBranchName)
-
-  //const [branch, setBranch] = useState([ // changed to singular version of Branch from Branches]);
-
+console.log(selectedBranch)
+  const pressHandler = id => {
+     console.log("load info for branch?")
+  };
 
   const submitHandler = text => {
     if (text.length > 3) {
@@ -38,11 +44,6 @@ export default function BranchPage({navigation}) {
     }
   };
 
-  const pressHandler = (item) => {
-    dispatch(saveBranchName(item.text))
-    navigation.navigate('subBranchPage');
-  };
-
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -54,13 +55,10 @@ export default function BranchPage({navigation}) {
         <View style={styles.content}>
           <View style={styles.list}>
             <FlatList
-              data={branchData}
+              data={subBranchData}
               renderItem={({item}) => (
-                // here's the ternary that compares the item.parent in the datafile with 
-                // the name of the branch selected in the previous screen
-                // if they match, it loads. if not, null.
                 (item.parent === selectedBranch) ? 
-                <BranchItem item={item} pressHandler={pressHandler}/> : null
+                <BranchItem item={item} pressHandler={pressHandler} /> : null
              )}
             />
             <AddBranch submitHandler={submitHandler} />

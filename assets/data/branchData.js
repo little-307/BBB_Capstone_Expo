@@ -2,86 +2,64 @@ export const trunkData = [
     {
         text: 'Education', 
         key: '1', 
-        branch: [
-            'math',
-            'english',
-            'social studies'
-        ]
+       
     },
-    {text: 'Health & Fitness', key: '2', 
-    branch: [
-        'diet'
-    ]},
+    {text: 'Health & Fitness', key: '2'},
     {text: 'Business', key: '3'},
 ]
 
 export const branchData = [
     {
-        parent: 'education',
-        text: 'math',
+        parent: 'Education',
+        text: 'Math',
         key: '1',
-        subBranch: [
-            'algebra',
-            'geometry',
-        ]
     },
     {
         parent: 'Health & Fitness',
-        text: 'diet',
+        text: 'Diet',
         key: '7',
-        subBranch: [
-            'calories',
-            'greens',
-        ]
     },
     {
-        parent: 'education',
-        text: 'english',
+        parent: 'Education',
+        text: 'English',
         key: '2',
-        subBranch: [
-            'nouns',
-            'verbs',
-        ]
     },
     {
-        parent: 'education',
-        text: 'social studies',
+        parent: 'Education',
+        text: 'Social Studies',
         key: '3',
-        subBranch: [
-            'history',
-            'government',
-        ]
     },
 ]
 
 export const subBranchData = [
     {
-        text: 'algebra',
+        parent: 'Math',
+        text: 'Algebra',
         key: '1',
     },
     {
-        text: 'geometry',
+        parent: 'Math',
+        text: 'Geometry',
         key: '2',
     },
     {
-        text: 'nouns',
+        parent: 'English',
+        text: 'Nouns',
         key: '3',
     },
     {
-        text: 'verbs',
+        parent: 'English',
+        text: 'Verbs',
         key: '4',
     },
     {
-        text: 'history',
+        parent: 'Social Studies',
+        text: 'History',
         key: '5',
     },
     {
-        text: 'government',
+        parent: 'Social Studies',
+        text: 'Government',
         key: '6',
     },
 ]
-
-
-
-
-

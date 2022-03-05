@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import { useSelector } from 'react-redux';
-import { selectBranch } from '../state/branchSlice';
+import React from 'react';
 
 import {
   StyleSheet,
@@ -15,28 +13,20 @@ import {
 import Header from '../components/Dashboard/Header';
 import BranchItem from '../components/Dashboard/BranchItem';
 import AddBranch from '../components/Dashboard/AddBranch';
+import { useDispatch } from 'react-redux';
+//added a new slice to save the selected branch
+// so the child BranchPage can determine which branches to show
+import { saveBranchName } from '../state/branchNameSlice'; 
 
+//importing data. Next week we can move this to a database if you want to. 
 import { trunkData } from '../assets/data/branchData';
 
+ 
+
 export default function Dashboard({navigation}) {
-  // console.log(item)
-  // const [branches, setBranches] = useState([
-  //   {text: 'Education', key: '1'},
-  //   {text: 'Health & Fitness', key: '2'},
-  //   {text: 'Business', key: '3'},
-  // ]);
-  const [branchItem, setBranchItem] = useState()
+  const dispatch = useDispatch()
 
-  // NAVIGATION handler
-  // const pressHandler = () => {
-    // NAVIGATE AND BRING BRANCH DATA
-    // navigation.navigate('BranchPage', {name: text}); 
-    // console.log(text);
-    // setBranches(prevBranches => {
-    //   return prevBranches.filter(branch => branch.key !== key);
-    // });
-  // };
-
+  // for adding branches - next step after styling?
   const submitHandler = text => {
     if (text.length > 3) {
       setBranches(prevBranches => {
@@ -51,7 +41,15 @@ export default function Dashboard({navigation}) {
       ]);
     }
   };
-// console.log(useSelector(selectBranch))
+
+  //pulled the pressHandler function back to the parent component 
+  // Now passing it down as a callback (like you had it!!!)
+  // This allows us to set the correct page to navigate
+  // and send the branchName to redux 
+  const pressHandler = (item) => {
+    dispatch(saveBranchName(item.text))
+    navigation.navigate('BranchPage');
+  };
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -67,9 +65,8 @@ export default function Dashboard({navigation}) {
               data={trunkData}
               renderItem={({item}) => (
                   <BranchItem 
-                    navigation={navigation}
                     item={item} 
-                    name={item.text} 
+                    pressHandler={pressHandler}
                     /> 
               )}
             />
