@@ -7,9 +7,10 @@ example:
    2a. math: {
       3a.  algebra:
       3b.  geometry:
-      3c.  trig:
+      3c.  trig: }
    2b. english:
    2c. social-studies:
+   }
    
 Next with the "branches" I'll work to get the data to store corectly in the database (currently useing MongoDB)
 
