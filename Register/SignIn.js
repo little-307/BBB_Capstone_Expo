@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  ImageBackground,
   Text,
   StyleSheet,
   Button,
@@ -42,7 +43,10 @@ const SignIn = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.logo}></View>
+      {/* <ImageBackground style={styles.logo}> </ImageBackground> */}
+      <View style={styles.logo}>
+        <Text style={styles.title}>Branch by Branch</Text>
+      </View> 
       <View style={styles.formContainer}>
         <Text style={styles.heading}>
           Welcome{'\n'}
@@ -98,6 +102,14 @@ const styles = StyleSheet.create({
   logo: {
     width: '100%',
     height: '30%',
+    alignItems: 'center',
+  },
+  title: {
+    alignSelf: 'center',
+    marginTop: 80,
+    fontSize: 32,
+    fontWeight: '800',
+    color: 'coral',
   },
   formContainer: {
     width: '100%',

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     height: 10,
     // width: {dotWidth},
     borderRadius: 5,
-    backgroundColor: '#493d8a',
+    backgroundColor: 'coral',
     marginHorizontal: 8,
   },
 });

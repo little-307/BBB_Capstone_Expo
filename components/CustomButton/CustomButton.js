@@ -33,14 +33,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#3b71f3',
     },
     container_TERTIARY: {
-
+        alignSelf: 'center',
     },
     text: {
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         color: 'white',
     },
     text_TERTIARY: {
-
+        fontSize: 20,
     }
 })
 

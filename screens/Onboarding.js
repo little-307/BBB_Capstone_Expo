@@ -30,7 +30,7 @@ export default function Onboarding({navigation}) {
           horizontal
           showsHorizontalScrollIndicator={false}
           pagingEnabled
-          bounces={false}
+          bounces={true}
           keyExtractor={item => item.id}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {x: scrollX}}}],

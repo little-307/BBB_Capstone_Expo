@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   txtContainer: {
     flex: 0.2,
+    marginHorizontal: 16,
   },
   title: {
     // flex: 0.3,
@@ -43,9 +44,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   description: {
-    fontWeight: '300',
-    color: '#fff',
-    textAlign: 'center',
-    paddingHorizontal: 64,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });

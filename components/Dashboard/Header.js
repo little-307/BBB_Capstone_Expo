@@ -1,25 +1,28 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import HeaderBranch from '../../assets/images/HeaderBranch.png';
 
 export default function Header({name}) {
   console.log(name)
   return (
-    <View style={styles.header}>
+    <ImageBackground source={HeaderBranch} style={styles.header}>
       <Text style={styles.title}>{name}</Text>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
     height: 80,
-    paddingTop: 38,
-    backgroundColor: 'coral',
+    width: '100%',
+    // paddingTop: 38,
+    // backgroundColor: 'coral',
   },
   title: {
     textAlign: 'center',
-    color: '#fff',
-    fontSize: 20,
+    marginTop: 10,
+    color: '#31436A',
+    fontSize: 48,
     fontWeight: 'bold',
   },
 });

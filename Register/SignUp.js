@@ -31,7 +31,9 @@ const SignUp = ({navigation}) => {
   }
   return (
     <View style={styles.container}>
-      <View style={styles.logo}></View>
+      <View style={styles.logo}>
+        <Text style={styles.title}>Branch by Branch</Text>
+      </View>
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Get Started</Text>
         <View style={styles.formView}>
@@ -121,6 +123,14 @@ const styles = StyleSheet.create({
   logo: {
     width: '100%',
     height: '30%',
+    alignItems: 'center',
+  },
+  title: {
+    alignSelf: 'center',
+    marginTop: 60,
+    fontSize: 32,
+    fontWeight: '800',
+    color: 'coral',
   },
   formContainer: {
     width: '100%',
