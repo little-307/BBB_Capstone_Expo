@@ -16,6 +16,7 @@ Next with the "branches" I'll work to get the data to store corectly in the data
 
 
 
-Authentication for the login and signup process is underway (figureing out encryption for passwords). A good section of this step
+Authentication for the login and signup process is underway (figuring out encryption for passwords). 
+A good section of this step
 is started with data from textinput are console logging on submit.
 
